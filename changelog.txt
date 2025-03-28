@@ -1,0 +1,9 @@
+Mudança no sistema de listar contatos:
+*Agora é aberto um campo para fazer a leitura do mesmo, ainda não está totalmente funcional;
+
+Adição de contatos:
+*Agora toda vez que um contato é adicionado, automaticamente os campos de nome e telefone são limpos;
+
+Corrigido bug que demorava a adicionar um contato na agenda;
+Adicionado uma quebra de linha quando lista contato, separando nome e telefone em linhas diferentes;
+Removida a mensagem canselado ao dar eskape nos campos da função de adicionar contatos;

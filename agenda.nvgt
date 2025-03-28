@@ -1,0 +1,48 @@
+#include "dynamic_menu.nvgt"
+#include "src/funcoes_agenda.nvgt"
+dynamic_menu m;
+sound s;
+void main() {
+    s.load("sons/open.ogg");
+    s.play_wait();
+    wait(500);
+    speak("Bem-vindo a agenda telefônica!");
+    wait(1000);
+    while(true) {
+        s.load("sons/music.ogg");
+        show_game_window("Agenda telefônica");
+        m.set_speech_mode(1);
+        m.allow_escape = true;
+        m.add_item_tts("Cadastrar contatos na agenda");
+        m.add_item_tts("Listar contatos cadastrados");
+        m.add_item_tts("Sair do programa");
+        s.play_looped();
+        int opcao=m.run("", true);
+        if(opcao==-1) {
+            speak("Obrigado por utilizar nossa agenda telefônica!");
+            break;
+        }
+        else if(opcao==0) {
+            s.load("sons/close.ogg");
+            s.play_wait();
+            speak("Obrigado por utilizar nossa agenda telefônica!");
+            break;
+        }
+        else if(opcao==1) {
+            addContacts();
+        }
+        else if(opcao==2) {
+            listContacts();
+        }
+        if(opcao==3) {
+            exit();
+            wait(600);
+            speak("Obrigado por utilizar nossa agenda telefônica!");
+            wait(1200);
+            s.load("sons/fechar.ogg");
+            s.play_wait();
+            speak("Obrigado por utilizar nossa agenda telefônica!");
+            exit();
+        }
+    }
+}
