@@ -1,3 +1,8 @@
+Mudanças no menu:
+*Corrigido bug que quando celecionava uma opção, quando clicava na opção de sair, não deixava fechar o programa;
+*Agora usamos classe de menu do nvgt ao em véz de utilizar o dynamic;
+*Agora é possível navegar por letras nas opções do menu;
+
 Mudança no sistema de listar contatos:
 *Agora é aberto um campo para fazer a leitura do mesmo, ainda não está totalmente funcional;
 
