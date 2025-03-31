@@ -2,7 +2,6 @@
 #include "funcoes_agenda.nvgt"
 
 sound s;
-menu m;
 
 void principal()
 {
@@ -13,6 +12,7 @@ void principal()
 	wait(1000);
 	while(true)
 	{
+		menu m;
 		s.load("sons/music.ogg");
 		show_window("Agenda telefônica");
 		m.wrap =false;
