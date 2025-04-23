@@ -1,3 +1,9 @@
+Correções:
+Agora os contatos são mostrados em um menu só, meus agradecimentos ao Wallan da Costa Martins pela contribuição na correção;
+
+Correções:
+*Corrigido duplicação do menu após cada iteração de algum item;
+
 Mudanças no menu:
 *Corrigido bug que quando celecionava uma opção, quando clicava na opção de sair, não deixava fechar o programa;
 *Agora usamos classe de menu do nvgt ao em véz de utilizar o dynamic;

@@ -43,24 +43,24 @@ void addContacts() {
 		}
 	}
 }
-
 void listContacts() 
 {
-	if(names.length()==0&&fones.length()==0) {
-		wait(500);
-		speak("A agenda está vazia!");
-		wait(1000);
-	}
-	else {
-		audio_form form;
-		form.create_window("Agenda telefônica", true);
-		for(int i=0; i<tamanho; i++) {
-			int listContacts = form.create_input_box("Listando os contatos", "nome:" +names[i]+ "\n telefone" +fones[i], read_only=true, multiline=true);
-			while(true) {
-				wait(5);
-				if(key_pressed(KEY_ESCAPE)) break;
-				form.monitor();
-			}
-		}
-	}
+    if(names.length()==0&&fones.length()==0) {
+        wait(500);
+        speak("A agenda está vazia!");
+        wait(1000);
+    }
+    else {
+        audio_form form;
+        form.create_window("Agenda telefônica", true);
+        int listContacts = form.create_list("Listando os contatos");
+        for(int i=0; i<tamanho; i++) {
+            form.add_list_item(listContacts, "nome: " + names[i] + "\n telefone: " + fones[i] + "\n");
+        }
+        while(true) {
+            wait(5);
+            if(key_pressed(KEY_ESCAPE)) break;
+            form.monitor();
+        }
+    }
 }
