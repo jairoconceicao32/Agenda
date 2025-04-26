@@ -3,8 +3,7 @@
 
 sound s;
 
-void principal()
-{
+void principal() {
 	s.load("sons/open.ogg");
 	s.play_wait();
 	wait(100);
@@ -15,8 +14,7 @@ void principal()
 
 	puxarContatos();
 
-	while(true)
-	{
+	while (true) {
 		menu m;
 		m.intro_text = "Use as cetas para navegar pelas op��es do programa e ap�s precione enter.";
 		wait(500);
@@ -24,8 +22,8 @@ void principal()
 		m.select_sound = "sons/select.ogg";
 		s.load("sons/music.ogg");
 		s.volume = -25;
-		show_window("Agenda telefônica - versão"+agenda_ver);
-		m.wrap =false;
+		show_window("Agenda telefônica - versão" + agenda_ver);
+		m.wrap = false;
 		m.focus_first_item = true;
 		m.add_item("Cadastrar contatos", "cad");
 		m.add_item("Deletar contato", "del");
@@ -34,8 +32,8 @@ void principal()
 		m.add_item("Verificar atualizações", "update");
 		m.add_item("Sair do programa", "exit");
 		s.play_looped();
-		int select= m.run();
-		if(select==-1) {
+		int select = m.run();
+		if (select == -1) {
 			wait(600);
 			speak("Obrigado por utilizar nossa agenda telefônica!");
 			wait(1200);
@@ -43,23 +41,19 @@ void principal()
 			s.play_wait();
 			break;
 		}
-		if(select>=0)
-		{
+		if (select >= 0) {
 			string selected_id = m.get_selected_item_id();
-			if(selected_id=="cad")
-			{
+			if (selected_id == "cad")
 				addContacts();
-			} else if(selected_id=="list") {
+			else if (selected_id == "list")
 				listContacts();
-			} else if(selected_id=="del") {
+			else if (selected_id == "del")
 				deleteContacts();
-			} else if(selected_id=="changes")
-			{
+			else if (selected_id == "changes")
 				ler_mudancas();
-			} else if(selected_id=="update")
-			{
+			else if (selected_id == "update")
 				agenda_updater();
-			} else {
+			else {
 				wait(600);
 				speak("Obrigado por utilizar nossa agenda telefônica!");
 				wait(1200);
