@@ -24,10 +24,18 @@ return r.complete ? "finished" : "";
 }
 void main() {
 	dl_file("https://raw.githubusercontent.com/jairoconceicao32/agenda/main/agenda.exe", "agenda.exe");
-	dl_file("https://raw.githubusercontent.com/jairoconceicao32/agenda/main/changelog.txt", "changelog.txt");
-	if (file_exists("agenda.exe") && file_exists("changelog.txt")) {
+	wait(10);
+	if (file_exists("agenda.exe")) {
 		speak("Download concluído.");
 	} else {
 		speak("Falha no download.");
+	}
+	wait(15);
+	speak("Baixando o log de alterações mais recente. Por favor, aguarde...");
+	dl_file("https://raw.githubusercontent.com/jairoconceicao32/agenda/main/changelog.txt", "changelog.txt");
+	if (file_exists("changelog.txt")) {
+		speak("Download concluído.");
+	} else {
+		speak("O arquivo de mudanças não foi encontrado... fale com o desenvolvedor para lhe fornecer o arquivo.");
 	}
 }
