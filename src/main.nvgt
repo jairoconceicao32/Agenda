@@ -10,22 +10,25 @@ void principal()
 	wait(100);
 	speak("Bem-vindo a agenda telefÃ´nica!");
 	wait(200);
+	Contato schema;
+	bancoAgenda.execute(schema.schema);
 	while(true)
 	{
 		menu m;
-		m.intro_text = "Use as cetas para navegar pelas opções do programa e após precione enter.";
+		m.intro_text = "Use as cetas para navegar pelas opï¿½ï¿½es do programa e apï¿½s precione enter.";
 		wait(500);
 		m.click_sound = "sons/click.ogg";
 		m.select_sound = "sons/select.ogg";
 		s.load("sons/music.ogg");
+		s.volume = -25;
 		show_window("Agenda telefÃ´nica - versÃ£o"+agenda_ver);
 		m.wrap =false;
 		m.focus_first_item = true;
 		m.add_item("Cadastrar contatos", "cad");
 		m.add_item("Deletar contato", "del");
 		m.add_item("Listar contatos cadastrados", "list");
-		m.add_item("Mudanças", "changes");
-		m.add_item("Verificar atualizações", "update");
+		m.add_item("MudanÃ§as", "changes");
+		m.add_item("Verificar atualizaÃ§Ãµes", "update");
 		m.add_item("Sair do programa", "exit");
 		s.play_looped();
 		int select= m.run();
