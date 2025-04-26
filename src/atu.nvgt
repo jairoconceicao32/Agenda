@@ -10,8 +10,7 @@ void agenda_updater() {
 			wait(500);
 			speak("O programa está atualizado");
 			wait(500);
-			}
-	} else {
+		}
+	} else
 		speak("Não é possível verificar se há atualizações no momento.");
-	}
 }
