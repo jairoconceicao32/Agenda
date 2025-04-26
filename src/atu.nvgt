@@ -7,7 +7,7 @@ void agenda_updater() {
             run("atualiza.exe", "", false, false);
 exit();
         } else {
-            speak("A agenda está atualizada.");
+            speak("Nenhuma atualização até o momento.");
             main();
         }
     } else {

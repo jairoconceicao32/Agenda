@@ -1,4 +1,9 @@
+mudanças v 1.01.
+Adicionado opção de deletar contatos. (Contribuição de ígor Alves);
+Adicionados alguns sons para navegar e celecionar opções do menu;
+Agora é possível verificar se há mudanças rescentes pelo programa;
 Criado um atualizador para agenda;
+*Caso surgirem novas verções, você precisará verificar por atualizações no menu da agenda;
 
 Correções:
 Agora os contatos são mostrados em um menu só, meus agradecimentos ao Wallan da Costa Martins pela contribuição na correção;
