@@ -1,3 +1,5 @@
+Feitas mais algumas otimizações;
+Corrigido bug que ao verificar por atualizações, e não tivesse nova verção disponível, ao fechar o programa, abria o mesmo várias vezes;
 Melhora no carregamento do menu;
 
 mudanças v 1.01.
