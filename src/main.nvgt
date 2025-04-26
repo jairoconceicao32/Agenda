@@ -7,14 +7,14 @@ void principal()
 {
 	s.load("sons/open.ogg");
 	s.play_wait();
-	wait(200);
+	wait(100);
 	speak("Bem-vindo a agenda telefÃ´nica!");
-	wait(500);
+	wait(200);
 	while(true)
 	{
 		menu m;
 		m.intro_text = "Use as cetas para navegar pelas opções do programa e após precione enter.";
-		wait(2000);
+		wait(500);
 		m.click_sound = "sons/click.ogg";
 		m.select_sound = "sons/select.ogg";
 		s.load("sons/music.ogg");

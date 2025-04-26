@@ -1,6 +1,6 @@
 #include "src/main.nvgt"
 #include "src/atu.nvgt"
-string agenda_ver="1.01";
+string agenda_ver="1.11";
 void main()
 {
 	principal();
