@@ -1,3 +1,5 @@
+Melhora no carregamento do menu;
+
 mudanças v 1.01.
 Adicionado opção de deletar contatos. (Contribuição de ígor Alves);
 Adicionados alguns sons para navegar e celecionar opções do menu;
