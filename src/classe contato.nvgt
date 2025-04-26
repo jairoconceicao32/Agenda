@@ -3,8 +3,8 @@
 
 class Contato : database_object {
     database_int id("rowid", "auto");
-    database_string nome;
-    database_string telefone;
+    database_string nome("nome");
+    database_string telefone("telefone");
     Contato() {
         super(bancoAgenda, "contatos");
         postconstruct();
