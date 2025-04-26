@@ -1,6 +1,10 @@
+#pragma plugin nvgt_sqlite
 #include "src/main.nvgt"
 #include "src/atu.nvgt"
+#include "src/classe contato.nvgt"
 string agenda_ver="1.12";
+sqlite3 bancoAgenda("agenda.db");
+
 void main()
 {
 	principal();
