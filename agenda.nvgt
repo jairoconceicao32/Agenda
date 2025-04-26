@@ -4,6 +4,7 @@
 #include "src/classe contato.nvgt"
 string agenda_ver="1.12";
 sqlite3 bancoAgenda("agenda.db");
+Contato@[] contatos;
 
 void main()
 {

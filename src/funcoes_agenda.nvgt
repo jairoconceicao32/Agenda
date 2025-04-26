@@ -1,8 +1,5 @@
 #include "form.nvgt"
 #include "speech.nvgt"
-string[] names;
-string[] fones;
-int tamanho;
 
 void addContacts() {
 	audio_form text;
@@ -21,7 +18,6 @@ void addContacts() {
 		text.monitor();
 		if(text.is_pressed(addContat)) 
 		{
-			indiceFoco ++;
 			string nameStr = text.get_text(name);
 			string foneNumberStr = text.get_text(foneNumber);
 			if(foneNumberStr.length()<11)
@@ -33,9 +29,11 @@ void addContacts() {
 				text.focus(inputs[indiceFoco]);
 			} else 
 			{
-				names.insert_last(nameStr);
-				fones.insert_last(foneNumberStr);
-				tamanho ++;
+				Contato novoContato;
+				novoContato.nome = nameStr;
+				novoContato.telefone = foneNumberStr;
+				novoContato.commit();
+				contatos.insert_last(novoContato);
 				speak("Contato adicionado!");
 				text.set_text(name, "");
 				text.set_text(foneNumber, "");
@@ -46,7 +44,8 @@ void addContacts() {
 
 void listContacts() 
 {
-	if(names.length()==0&&fones.length()==0) {
+
+	if(contatos.length() == 0) {
 		wait(500);
 		speak("A agenda está vazia!");
 		wait(1000);
@@ -55,8 +54,8 @@ void listContacts()
 		audio_form form;
 		form.create_window("Agenda telefônica", true);
 		int listContacts = form.create_list("Listando os contatos");
-		for(int i=0; i<tamanho; i++) {
-			form.add_list_item(listContacts, "nome: " + names[i] + "\ntelefone: " + fones[i] + "\n");
+		for(int i=0; i<contatos.length(); i++) {
+			form.add_list_item(listContacts, "nome: " + contatos[i].nome + "\ntelefone: " + contatos[i].telefone + "\n");
 		}
 		while(true) {
 			wait(5);
@@ -95,7 +94,7 @@ void ler_mudancas() {
 }
 
 void deleteContacts() {
-    if (names.length() == 0 && fones.length() == 0) {
+    if (contatos.length() == 0) {
         wait(500);
         speak("A agenda está vazia!");
         wait(1000);
@@ -106,8 +105,8 @@ void deleteContacts() {
 
         // Exibir os contatos para seleção
         array<int> contactOptions;
-        for (int i = 0; i < tamanho; i++) {
-            int contactOption = form.create_button("Deletar: " + names[i] + " - " + fones[i]);
+        for (int i = 0; i < contatos.length(); i++) {
+            int contactOption = form.create_button("Deletar: " + contatos[i].nome + " - " + contatos[i].telefone);
             contactOptions.insert_last(contactOption);
         }
 
@@ -125,15 +124,23 @@ void deleteContacts() {
 
             if (contatoSelecionado != -1) {
                 // Remover contato selecionado
-                string nomeDeletado = names[contatoSelecionado];
-                names.remove_at(contatoSelecionado);
-                fones.remove_at(contatoSelecionado);
-                tamanho--;
+				bancoAgenda.execute("delete from contatos where rowid=" + contatos[contatoSelecionado].id + ";");
 
-                speak("Contato " + nomeDeletado + " foi deletado!");
+                speak("Contato " + contatos[contatoSelecionado].nome + " foi deletado!");
+				puxarContatos();
                 wait(1000);
                 break;
             }
         }
     }
+}
+
+void puxarContatos() {
+
+	contatos.resize(0);
+	sqlite3statement@ consulta = bancoAgenda.prepare("select rowid, * from contatos;");
+	while(consulta.step() == SQLITE_ROW) {
+		Contato contato(consulta);
+		contatos.insert_last(contato);
+	}
 }

@@ -12,6 +12,9 @@ void principal()
 	wait(200);
 	Contato schema;
 	bancoAgenda.execute(schema.schema);
+
+	puxarContatos();
+
 	while(true)
 	{
 		menu m;
