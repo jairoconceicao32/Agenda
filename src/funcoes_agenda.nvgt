@@ -3,7 +3,7 @@
 
 void addContacts() {
 	audio_form text;
-	text.create_window("Agenda telefônica");
+	text.create_window("Agenda telefônica - versão" + agenda_ver);
 	wait(50);
 	int name = text.create_input_box("Dijite o nome do contato", "");
 	int foneNumber = text.create_input_box("Dijite o telefone do contato", "");
@@ -46,7 +46,7 @@ void listContacts() {
 		wait(1000);
 	} else {
 		audio_form form;
-		form.create_window("Agenda telefônica", true);
+		form.create_window("Agenda telefônica - versão" + agenda_ver, true);
 		int listContacts = form.create_list("Listando os contatos");
 		for (int i = 0; i < contatos.length(); i++)
 			form.add_list_item(listContacts, "nome: " + contatos[i].nome + "\ntelefone: " + contatos[i].telefone + "\n");
@@ -60,7 +60,7 @@ void listContacts() {
 
 void ler_mudancas() {
 	audio_form form;
-	form.create_window("Agenda telefônica", true);
+	form.create_window("Agenda telefônica - versão" + agenda_ver, true);
 	if (file_exists("changelog.txt")) {
 		file f;
 		f.open("changelog.txt", "r");
@@ -89,7 +89,7 @@ void deleteContacts() {
 		wait(1000);
 	} else {
 		audio_form form;
-		form.create_window("Agenda telefônica", true);
+		form.create_window("Agenda telefônica - versão" + agenda_ver, true);
 		int contatoSelecionado = -1;
 
 		// Exibir os contatos para seleção

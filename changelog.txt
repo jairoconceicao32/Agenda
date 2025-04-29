@@ -1,3 +1,8 @@
+Mudanças v 1.2;
+Volume da música de fundo pode ser almentada e diminuída, use f1 e f2;
+Agora contatos são salvos, agradecimentos a Dalison JT pela contribuição;
+*Com essa modificação, contatos adicionados são armazenados em um banco de dados;
+
 Feitas mais algumas otimizações;
 Corrigido bug que ao verificar por atualizações, e não tivesse nova verção disponível, ao fechar o programa, abria o mesmo várias vezes;
 Melhora no carregamento do menu;
