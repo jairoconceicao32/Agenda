@@ -2,7 +2,7 @@
 #include "funcoes_agenda.nvgt"
 
 sound s;
-int volume;
+int volume=-20;
 
 void principal() {
 	s.load("sons/open.ogg");
@@ -37,11 +37,11 @@ void principal() {
 		while(m.monitor()) {
 			wait(5);
 			if(key_pressed(KEY_F1)) {
-				volume=-10;
+				volume--;
 				s.volume =volume;
 			}
 			if(key_pressed(KEY_F2)){
-				volume=+10;
+				volume++;
 				s.volume =volume;
 			}
 		}
