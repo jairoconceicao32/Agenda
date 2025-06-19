@@ -13,7 +13,6 @@ string dl_file(string url, string disk_file) {
 		if (old_percent != percent) {
 			old_percent = percent;
 			s.load("");
-			push_audio(@s, triangle_wave(110.0 * 2.0 * *(percent / 25.0), 40, amp: .3));
 			s.play();
 		}
 		if (key_pressed(KEY_SPACE))
