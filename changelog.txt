@@ -1,3 +1,6 @@
+Mudanças v1.3;
+Apenas removendo códigos desnecessários e melhorando carregamento;
+
 Mudanças v 1.2;
 Volume da música de fundo pode ser almentada e diminuída, use f1 e f2;
 Agora contatos são salvos, agradecimentos a Dalison JT pela contribuição;
